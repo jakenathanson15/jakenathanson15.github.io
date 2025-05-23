@@ -20,24 +20,27 @@
       padding: 2em 1em;
     }
 
- .header-inner {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  align-items: center;
-  max-width: 1000px;
-  margin: 0 auto;
-  gap: 1.5em;
-}
-
+    .header-inner {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      max-width: 1000px;
+      margin: 0 auto;
+      gap: 1.5em;
+    }
 
     .napo-logo {
       max-height: 70px;
     }
 
-  .header-text {
-  text-align: center;
-  justify-self: center;
-}
+    .napo-logo-spacer {
+      width: 140px; /* Matches approximate logo width */
+      height: 1px;
+    }
+
+    .header-text {
+      text-align: center;
+    }
 
     .header-text h1 {
       margin: 0;
@@ -166,9 +169,12 @@
 
     @media (max-width: 600px) {
       .header-inner {
-        flex-direction: column;
-        align-items: center;
+        grid-template-columns: 1fr;
         text-align: center;
+      }
+
+      .napo-logo-spacer {
+        display: none;
       }
 
       nav.site-nav {
@@ -191,6 +197,7 @@
         <h1>Blissfully Organized by Ellie</h1>
         <p>Professional Home Organizer based in the Hudson Valley</p>
       </div>
+      <div class="napo-logo-spacer" aria-hidden="true"></div>
     </div>
   </header>
 
