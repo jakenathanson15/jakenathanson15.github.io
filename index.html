@@ -49,12 +49,46 @@
       margin-bottom: 0.5em;
     }
 
-    .testimonial {
+    .carousel {
+      position: relative;
+      max-width: 700px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    .testimonial-slide {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      width: 500%;
+    }
+
+    .testimonial-slide blockquote {
+      flex: 0 0 100%;
+      font-style: italic;
+      padding: 1.5em;
       background: #fff6f6;
       border-left: 4px solid #d6336c;
-      padding: 1em;
-      margin: 1em 0;
-      font-style: italic;
+      margin: 0;
+    }
+
+    .carousel button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #f4c2c2;
+      border: none;
+      font-size: 2em;
+      padding: 0 0.5em;
+      cursor: pointer;
+      color: #333;
+    }
+
+    .carousel .prev {
+      left: 0;
+    }
+
+    .carousel .next {
+      right: 0;
     }
 
     footer {
@@ -87,8 +121,17 @@
 
   <section id="testimonials">
     <h2>Testimonials</h2>
-    <div class="testimonial">"Ellie has been a God-send to me! I am a person of heart who’s tried numerous times to declutter. With her support, I feel more clear." – Jackie</div>
-    <div class="testimonial">"I enjoyed my experience with my recent organization session. This was not easy for me but trusting and releasing, DECLUTTERING, and... she made it a joy!" – Aysha</div>
+    <div class="carousel">
+      <button class="prev">&#10094;</button>
+      <div class="testimonial-slide">
+        <blockquote>"Ellie has been a God-send to me... Her calm and nonjudgmental demeanor helped guide the process." <br>— Janice Hulst-Murphy</blockquote>
+        <blockquote>"Ellie is extremely professional. She will help you get your life back in order!" <br>— Cathy Martensen</blockquote>
+        <blockquote>"Ellie was a pleasure to work with! Didn't make me feel overwhelmed. Highly recommend!" <br>— Danielle Kaufman</blockquote>
+        <blockquote>"Ellie helped me organize massive clutter... Very patient, non-judgmental, and professional." <br>— John Hamilton</blockquote>
+        <blockquote>"Ellie has helped me over the past few months organize my new home... Highly recommended!" <br>— Ashley Whittaker Spence</blockquote>
+      </div>
+      <button class="next">&#10095;</button>
+    </div>
   </section>
 
   <section id="contact">
@@ -105,6 +148,32 @@
   <footer>
     &copy; 2025 Blissfully Organized by Ellie. All rights reserved.
   </footer>
+
+  <script>
+    const slides = document.querySelector('.testimonial-slide');
+    const total = slides.children.length;
+    let index = 0;
+
+    function updateSlide() {
+      slides.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    document.querySelector('.next').onclick = () => {
+      index = (index + 1) % total;
+      updateSlide();
+    };
+
+    document.querySelector('.prev').onclick = () => {
+      index = (index - 1 + total) % total;
+      updateSlide();
+    };
+
+    //  auto-switch every 7 seconds
+    setInterval(() => {
+      index = (index + 1) % total;
+      updateSlide();
+    }, 7000);
+  </script>
 
 </body>
 </html>
