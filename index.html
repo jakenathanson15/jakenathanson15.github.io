@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blissfully Organized by Ellie</title>
   <style>
     body {
@@ -11,13 +11,19 @@
       padding: 0;
       background: #fdfdfd;
       color: #333;
+      line-height: 1.6;
     }
 
     header {
       background-color: #f4c2c2;
       color: #222;
-      padding: 1.5em 2em;
+      padding: 2em 1em;
       text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
     }
 
     nav {
@@ -30,12 +36,14 @@
       padding: 1em 0;
       position: sticky;
       top: 0;
+      z-index: 1000;
     }
 
     nav a {
       text-decoration: none;
       color: #d6336c;
       font-weight: bold;
+      font-size: 1.1em;
     }
 
     section {
@@ -46,29 +54,38 @@
 
     h2 {
       color: #d6336c;
+      font-size: 1.8em;
       margin-bottom: 0.5em;
     }
 
+    /* Carousel Styling */
     .carousel {
       position: relative;
-      max-width: 700px;
-      margin: 0 auto;
-      overflow: hidden;
-    }
-
-    .testimonial-slide {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-      width: 500%;
-    }
-
-    .testimonial-slide blockquote {
-      flex: 0 0 100%;
-      font-style: italic;
-      padding: 1.5em;
       background: #fff6f6;
       border-left: 4px solid #d6336c;
-      margin: 0;
+      border-radius: 8px;
+      padding: 2em;
+      text-align: center;
+      min-height: 200px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .testimonial {
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 2em;
+      margin: 0 auto;
+      font-style: italic;
+      font-size: 1.1em;
+    }
+
+    .testimonial.active {
+      opacity: 1;
+      position: relative;
     }
 
     .carousel button {
@@ -77,26 +94,60 @@
       transform: translateY(-50%);
       background: #f4c2c2;
       border: none;
-      font-size: 2em;
-      padding: 0 0.5em;
+      font-size: 1.5em;
+      padding: 0.5em 0.8em;
       cursor: pointer;
       color: #333;
+      border-radius: 50%;
+      transition: background 0.3s;
+    }
+
+    .carousel button:hover {
+      background: #e89e9e;
     }
 
     .carousel .prev {
-      left: 0;
+      left: -10px;
     }
 
     .carousel .next {
-      right: 0;
+      right: -10px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    ul li {
+      margin: 0.5em 0;
+    }
+
+    a {
+      color: #d6336c;
     }
 
     footer {
       text-align: center;
       padding: 2em;
       background: #f4c2c2;
-      margin-top: 3em;
       font-size: 0.9em;
+      margin-top: 3em;
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        gap: 1em;
+      }
+
+      .carousel {
+        padding: 1.5em 1em;
+      }
+
+      .carousel button {
+        display: none;
+      }
     }
   </style>
 </head>
@@ -115,21 +166,19 @@
 
   <section id="about">
     <h2>About Me</h2>
-    <p>Hello! I'm Ellie, a professional home organizer with a passion for transforming spaces into peaceful, functional environments. Based in the Hudson Valley, I specialize in helping clients take back control of their homes  whether it’s a single room or the whole house, packing for a move or downsizing!</p>
+    <p>Hello! I'm Ellie, a professional home organizer with a passion for transforming spaces into peaceful, functional environments. Based in the Hudson Valley, I specialize in helping clients take back control of their homes—whether it’s a single room, the whole house, packing for a move, or downsizing!</p>
     <p>With a compassionate approach and many years of experience, I work with you to create systems that are both practical and beautiful.</p>
   </section>
 
   <section id="testimonials">
     <h2>Testimonials</h2>
     <div class="carousel">
+      <div class="testimonial active">"Ellie has been a God-send to me... Her calm and nonjudgmental demeanor helped guide the process."<br><strong>— Janice Hulst-Murphy</strong></div>
+      <div class="testimonial">"Ellie is extremely professional. She will help you get your life back in order!"<br><strong>— Cathy Martensen</strong></div>
+      <div class="testimonial">"Ellie was a pleasure to work with! Didn't make me feel overwhelmed. Highly recommend!"<br><strong>— Danielle Kaufman</strong></div>
+      <div class="testimonial">"Ellie helped me organize massive clutter... Very patient, non-judgmental, and professional."<br><strong>— John Hamilton</strong></div>
+      <div class="testimonial">"Ellie has helped me over the past few months organize my new home... Highly recommended!"<br><strong>— Ashley Whittaker Spence</strong></div>
       <button class="prev">&#10094;</button>
-      <div class="testimonial-slide">
-        <blockquote>"Ellie has been a God-send to me... Her calm and nonjudgmental demeanor helped guide the process." <br>— Janice Hulst-Murphy</blockquote>
-        <blockquote>"Ellie is extremely professional. She will help you get your life back in order!" <br>— Cathy Martensen</blockquote>
-        <blockquote>"Ellie was a pleasure to work with! Didn't make me feel overwhelmed. Highly recommend!" <br>— Danielle Kaufman</blockquote>
-        <blockquote>"Ellie helped me organize massive clutter... Very patient, non-judgmental, and professional." <br>— John Hamilton</blockquote>
-        <blockquote>"Ellie has helped me over the past few months organize my new home... Highly recommended!" <br>— Ashley Whittaker Spence</blockquote>
-      </div>
       <button class="next">&#10095;</button>
     </div>
   </section>
@@ -150,28 +199,29 @@
   </footer>
 
   <script>
-    const slides = document.querySelector('.testimonial-slide');
-    const total = slides.children.length;
+    const testimonials = document.querySelectorAll('.testimonial');
     let index = 0;
 
-    function updateSlide() {
-      slides.style.transform = `translateX(-${index * 100}%)`;
+    function showTestimonial(i) {
+      testimonials.forEach((el, idx) => {
+        el.classList.remove('active');
+        if (idx === i) el.classList.add('active');
+      });
     }
 
-    document.querySelector('.next').onclick = () => {
-      index = (index + 1) % total;
-      updateSlide();
-    };
+    document.querySelector('.next').addEventListener('click', () => {
+      index = (index + 1) % testimonials.length;
+      showTestimonial(index);
+    });
 
-    document.querySelector('.prev').onclick = () => {
-      index = (index - 1 + total) % total;
-      updateSlide();
-    };
+    document.querySelector('.prev').addEventListener('click', () => {
+      index = (index - 1 + testimonials.length) % testimonials.length;
+      showTestimonial(index);
+    });
 
-    //  auto-switch every 7 seconds
     setInterval(() => {
-      index = (index + 1) % total;
-      updateSlide();
+      index = (index + 1) % testimonials.length;
+      showTestimonial(index);
     }, 7000);
   </script>
 
