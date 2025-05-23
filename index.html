@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blissfully Organized by Ellie</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -30,18 +31,21 @@
 
     .site-header .header-text {
       flex: 1;
-      text-align: left;
+      text-align: center;
     }
 
     .site-header h1 {
       margin: 0;
-      font-size: 2.2em;
+      font-size: 2.5em;
+      font-family: 'Playfair Display', serif;
       color: #222;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.15);
     }
 
     .site-header p {
       margin: 0.3em 0 0;
       color: #333;
+      font-size: 1.1em;
     }
 
     nav {
@@ -156,12 +160,12 @@
     @media (max-width: 600px) {
       .site-header {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
       }
 
       .site-header .header-text {
-        text-align: left;
         margin-top: 1em;
+        text-align: center;
       }
 
       nav {
